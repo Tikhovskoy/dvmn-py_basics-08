@@ -31,7 +31,7 @@ def fetch_coordinates(apikey, address):
 
 
 def load_coffee_shops(file_path):
-    with open(file_path, "r") as coffee_file:
+    with open(file_path, "r", encoding="windows-1251") as coffee_file:
         return json.load(coffee_file)
 
 
@@ -69,6 +69,7 @@ def create_map(user_coords, coffee_shops, file_name=DEFAULT_FILE_NAME):
         ).add_to(map_)
 
     map_.save(file_name)
+
 
 def main():
     apikey = config("YANDEX_API_KEY")
